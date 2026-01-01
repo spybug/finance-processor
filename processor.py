@@ -5,7 +5,7 @@ import streamlit as st
 
 def process_csv(file_path='ExportData.csv'):
     """Process the downloaded CSV file."""
-    st.title("Finance Processor")
+    st.title("Finance Processor v1.0.2")
     uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
     if uploaded_file is not None:
