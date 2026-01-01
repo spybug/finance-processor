@@ -59,10 +59,19 @@ def process_csv(file_path='ExportData.csv'):
         month_year = df['Date'].iloc[0].strftime('%B-%Y')
         output_filename = f'{month_year}.xlsx'
         
+        def style_df(df):
+            return df.style.set_properties(**{
+                'background-color': '#363636',
+                'color': 'white'
+            }).set_table_styles([{
+                'selector': 'th',
+                'props': [('background-color', '#363636'), ('color', 'white')]
+            }])
+
         output_buffer = io.BytesIO()
         with pd.ExcelWriter(output_buffer, engine='openpyxl') as writer:
-            income_df.to_excel(writer, sheet_name='Income', index=False)
-            expenses_df.to_excel(writer, sheet_name='Expenses', index=False)
+            style_df(income_df).to_excel(writer, sheet_name='Income', index=False)
+            style_df(expenses_df).to_excel(writer, sheet_name='Expenses', index=False)
 
             # Get workbook and sheets
             income_sheet = writer.sheets['Income']
