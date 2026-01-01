@@ -61,11 +61,12 @@ def process_csv(file_path='ExportData.csv'):
         
         def style_df(df):
             return df.style.set_properties(**{
-                'background-color': '#363636',
-                'color': 'white'
+                'background-color': '#333333',
+                'color': 'white',
+                'border': '1px solid white'
             }).set_table_styles([{
                 'selector': 'th',
-                'props': [('background-color', '#363636'), ('color', 'white')]
+                'props': [('background-color', '#333333'), ('color', 'white'), ('border', '1px solid white')]
             }])
 
         output_buffer = io.BytesIO()
