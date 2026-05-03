@@ -21,7 +21,7 @@ def process_csv(file_path='ExportData.csv'):
         # Filter out unwanted rows
         df = df[~df['Status'].str.contains('scheduled', na=False)]
         df = df[~df['Original Description'].str.contains('Credit Card Payment', na=False)]
-        df = df[~df['Original Description'].str.contains('External Withdrawal.*(?:ALLY|GRDOBK|CAPITAL ONE)', na=False)]
+        df = df[~df['Original Description'].str.contains('External Withdrawal.*(?:ALLY|GRDOBK|CAPITAL ONE|UMBNA)', na=False)]
         df = df[~df['Original Description'].str.contains('Dividend.*Interest', na=False)]
         df = df[df['Category-Subcategory'] != 'Credit Card Payments']
         df = df[df['Account Name'] != 'BECU - Loan - Auto Loan']
